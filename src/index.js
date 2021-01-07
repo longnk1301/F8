@@ -5,6 +5,9 @@ const handleBars = require('express-handlebars');
 const app = express();
 const port = 3000;
 
+//config public folder
+app.use(express.static(path.join(__dirname, 'public')));
+
 //add morgan for logs http request middleware for nodejs
 app.use(morgan('combined'));
 
