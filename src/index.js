@@ -5,6 +5,8 @@ const handleBars = require('express-handlebars');
 const app = express();
 const port = 3000;
 
+const route = require('./routes');
+
 //config public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -21,22 +23,7 @@ app.engine('hbs', handleBars({ extname: '.hbs' }));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resource/views'));
 
-app.get('/', (req, res) => {
-  res.render('home');
-});
-
-app.get('/news', (req, res) => {
-  res.render('news');
-});
-
-app.get('/search', (req, res) => {
-  res.render('search');
-});
-
-app.post('/search', (req, res) => {
-  console.log('111', req.body);
-  res.send(req.body.q);
-});
+route(app);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
