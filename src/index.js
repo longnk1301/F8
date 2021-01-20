@@ -25,10 +25,10 @@ app.use(express.json());
 //template engine
 app.engine('hbs', handleBars({ extname: '.hbs' }));
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resource/views'));
+app.set('views', path.join(__dirname, 'resource', 'views'));
 
 route(app);
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`App listening at http://localhost:${port}`);
 });
