@@ -1,6 +1,6 @@
 <div class="mt-4">
   <h3>Create a new course</h3>
-  <form method="POST" action="/courses/store">
+  <form method="POST" action="/courses/store" class="mt-4">
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" class="form-control" id="name" name="name" placeholder="">
@@ -8,7 +8,7 @@
 
     <div class="form-group">
       <label for="description">Description</label>
-      <input type="text" class="form-control" id="description" name="description" placeholder="">
+      <textarea class="form-control" id="description" name="description" placeholder=""></textarea>
     </div>
 
     <div class="form-group">

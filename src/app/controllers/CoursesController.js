@@ -27,6 +27,17 @@ class CoursesController {
       .then(() => res.redirect('/'))
       .catch((err) => {});
   }
+
+  //GET /courses/:id/edit
+  update(req, res, next) {
+    Course.findById(req.params.id)
+      .then((course) => {
+        res.render('courses/update', {
+          course: helper.mongooseToObject(course),
+        });
+      })
+      .catch(next);
+  }
 }
 
 module.exports = new CoursesController();
