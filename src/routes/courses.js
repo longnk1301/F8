@@ -5,7 +5,8 @@ const coursesController = require('../app/controllers/CoursesController');
 
 router.get('/create', coursesController.create);
 router.post('/store', coursesController.store);
-router.get('/:id/edit', coursesController.update);
+router.get('/:id/update', coursesController.update);
+router.put('/:id', coursesController.edit);
 router.get('/:slug', coursesController.show);
 
 module.exports = router;

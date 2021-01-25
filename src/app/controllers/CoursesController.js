@@ -28,7 +28,7 @@ class CoursesController {
       .catch((err) => {});
   }
 
-  //GET /courses/:id/edit
+  //GET /courses/:id/update
   update(req, res, next) {
     Course.findById(req.params.id)
       .then((course) => {
@@ -37,6 +37,13 @@ class CoursesController {
         });
       })
       .catch(next);
+  }
+
+  //PUT /courses/:id
+  edit(req, res, next) {
+    Course.updateOne({ _id: req.params.id }, req.body)
+      .then(() => res.redirect('/me/store/courses'))
+      .catch((err) => {});
   }
 }
 
